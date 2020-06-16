@@ -1,0 +1,116 @@
+*{
+    box-sizing : border-box;
+}
+html {
+    min-height: 100vh;
+}
+body{
+    margin: 0;
+    background: radial-gradient(#a03d10, #3d3021);
+}
+.page-title{
+    color: #5a1d02;
+    font-family: Creepy, serif;
+    color: #ef1b06;
+    font-family: Creepy, Serif;
+    font-weight: normal;
+    text-align: center;
+    font-size: 6em;
+}
+img.mid {
+    height: 187px;
+}
+.game-info-container{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+.game-container{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-gap:10px;
+    margin: 50px;
+    justify-content: center;
+}
+.game-info{
+    font-family: Lunacy, serif;
+    color: lemonchiffon;
+    font-size: 4em;
+}
+.card{
+    position: relative;
+    background-color: black;
+    height: 188px;
+    width: 200px;
+}
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    transition: transform 500ms ease-in-out;
+}
+
+.card-back card-face{
+    width: 100%;
+    height: 100%;
+
+}
+.card:hover .card-back{
+    transform: rotateY(-180deg);
+}
+.card:hover .card-front{
+    transform: rotateY(0);
+}
+.overlay-text{
+    position: fixed;
+    top : 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: #ef1b06;
+    font-family: Creepy, Serif;
+}
+.overlay-text.visible{
+    display: flex;
+    animation: overlay-grow 500ms forwards;
+}
+@keyframes overlay-grow {
+    from{
+        background-color: rgba(0,0,0,0);
+    }
+    to{
+        background-color: rgba(0,0,0,8);
+        font-size: 10em;
+    }
+
+}
+.card-front{
+    transform: rotateY(180deg);
+    font-size: 0;
+}
+.cob-web{
+    position: absolute;
+    width: 47px;
+    height: 47px;
+}
+
+.mid{
+    align-self: flex-start;
+    transform: translate(-10px);
+    transition: transform 100ms ease-in-out;
+}
+.card-back:hover .mid{
+    transform: translate(0);
+}
